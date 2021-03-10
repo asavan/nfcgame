@@ -2,7 +2,7 @@
 const tagsColors = {
   "04:49:3a:ba:12:5c:80": "crimson",
   "04:4d:88:0a:80:51:80": "forestgreen",
-  "1f:ae:f8": "dodgerblue",
+  "1f:ae:f8:8d": "dodgerblue",
   "04:39:3d:9a:9d:29:82": "slategray",
   "04:38:1d:42:50:58:80": "gold",
   "04:fb:d0:b2:ed:40:80": "mediumorchid"
@@ -27,7 +27,7 @@ function onreading({ serialNumber }) {
     serialNumbers.includes(serialNumber) &&
     serialNumber !== serialNumbers.shift()
   ) {
-    lost();
+    // lost();
     return;
   }
 
@@ -43,7 +43,6 @@ function onreading({ serialNumber }) {
 
 button.addEventListener("click", async () => {
   // Start NFC scanning and prompt user if needed.
-  alert(1);
   ndef = new NDEFReader();
   await ndef.scan();
 
