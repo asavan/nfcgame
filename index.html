@@ -106,16 +106,11 @@
       <div></div>
     </div>
     <h1 id="button" class="hidden">start game</h1>
-    <pre
-      id="pre"
-    >Powered by <a href="https://w3c.github.io/web-nfc/">Web NFC</a></pre>
     <script>
       if ("NDEFReader" in window) {
         button.classList.toggle("hidden", false);
-        import("/script.js");
-      } else {
-        pre.textContent = "⚠️ Enable Web NFC - chrome://flags/#experimental-web-platform-features";
-      }
+        import("./script.js");
+      } 
 
       const mQL = window.matchMedia("(prefers-color-scheme: dark)");
       const meta = document.querySelector('meta[name="theme-color"]');
