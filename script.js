@@ -19,6 +19,8 @@ const WIN_IMAGE_URL = "assets/face-with-party-horn-and-party-hat.png";
 
 let ndef;
 
+const button = document.getElementById("button");
+
 function onreading({ serialNumber }) {
   // User tapped wrong tag.
   if (
@@ -39,8 +41,9 @@ function onreading({ serialNumber }) {
   setColor(serialNumber);
 }
 
-button.onclick = async () => {
+button.addEventListener("click", async () => {
   // Start NFC scanning and prompt user if needed.
+  alert(1);
   ndef = new NDEFReader();
   await ndef.scan();
 
@@ -63,7 +66,7 @@ button.onclick = async () => {
 
   // Start listening to tags.
   ndef.onreading = onreading;
-};
+});
 
 function reset() {
   ndef.onreading = null;
