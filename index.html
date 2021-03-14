@@ -13,88 +13,8 @@
       href="assets/ic_nfc_black_48dp.png"
       rel="icon"
     />
-    <meta name="theme-color" />
-    <style>
-      html {
-        height: 100%;
-        background-image: linear-gradient(
-          white,
-          lightgrey 15%,
-          lightgrey 65%,
-          white 90%
-        );
-      }
-      @media (prefers-color-scheme: dark) {
-        html {
-          background-image: linear-gradient(
-            #35363A,
-            #222 15%,
-            #222 65%,
-            #35363A 90%
-          );
-        }
-        pre {
-          color: #ddd;
-        }
-      }
-
-      body {
-        margin: 0;
-      }
-      pre {
-        position: absolute;
-        bottom: 64px;
-        padding: 12px;
-        left: 0;
-        right: 0;
-        margin: 0;
-        text-align: center;
-        font-family: "Roboto";
-      }
-      a {
-        text-decoration: none;
-        color: #4c8bf5;
-      }
-      #cards {
-        margin: 24px auto 0 auto;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-        display: grid;
-        gap: 12px;
-        width: 300px;
-        height: 300px;
-        overflow: hidden;
-        padding: 2px;
-        transform: perspective(500px) rotateX(30deg);
-      }
-      #cards > div {
-        background-color: white;
-        border-radius: 4px;
-        box-shadow: 0 1px 2px grey;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 50%;
-        transition: background-color 200ms ease-out;
-        box-shadow: 0 1px 2px grey, inset -4px -4px 0 white,
-          inset 4px 4px 0 white;
-      }
-      #button {
-        user-select: none;
-        margin: 96px auto;
-        text-align: center;
-        background-color: #4a4;
-        font-family: "Roboto";
-        color: white;
-        width: 200px;
-        padding: 12px 0 18px 0;
-        font-weight: normal;
-        box-shadow: inset 0 -4px 2px #070;
-        border-radius: 48px;
-      }
-      .hidden {
-        display: none !important;
-      }
-    </style>
+    <meta name="theme-color" content="#fff" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="cards">
@@ -108,20 +28,9 @@
     <h1 id="button" class="hidden">start game</h1>
     <script>
       if ("NDEFReader" in window) {
-        button.classList.toggle("hidden", false);
+        button.classList.remove("hidden");
         import("./script.js");
       }
-
-      const mQL = window.matchMedia("(prefers-color-scheme: dark)");
-      const meta = document.querySelector('meta[name="theme-color"]');
-      mQL.addListener(() => {
-        if (mQL.matches) {
-          meta.content = "#35363A";
-        } else {
-          meta.content = "#fff";
-        }
-      });
-      meta.content = mQL.matches ? "#35363A" : "#fff";
     </script>
   </body>
 </html>
