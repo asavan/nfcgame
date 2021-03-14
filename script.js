@@ -25,12 +25,13 @@ function onreading({ serialNumber }) {
   // User tapped wrong tag.
   if (
     serialNumbers.includes(serialNumber) &&
-    serialNumber !== serialNumbers.shift()
+    serialNumber !== serialNumbers[0]
   ) {
     // lost();
     return;
   }
 
+  serialNumbers.shift();
   // User tapped all tags in the right order.
   if (serialNumbers.length === 0) {
     win();
@@ -103,7 +104,7 @@ async function setColor(serialNumber, transient = false) {
       setTimeout(_ => {
         resolve();
         card.style.backgroundColor = "";
-      }, Math.max(100, 500 - 200 * numberOfTimesUserWon));
+      }, Math.max(200, 500 - 200 * numberOfTimesUserWon));
     });
   }
 }
